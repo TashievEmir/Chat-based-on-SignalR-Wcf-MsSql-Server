@@ -1,0 +1,30 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SignalR BroadCast</title>
+</head>
+<body>
+    <br /><br />
+    <form method="post">
+        <div id="selfid">
+            &nbsp; Input your name: &nbsp;
+            <input name="name" type="text" />
+            <br /><br />
+            &nbsp; Input your name: &nbsp;
+            <input name="password" type="text" /> 
+            &nbsp;
+            <input id="btnmyid" type="submit" value="Sign In" />
+        </div>
+    </form>
+    <br /><br />
+    <div>
+        For Registration &nbsp;
+        <a href="@Url.Action("SignUp","SignUp")">
+            <input type="button" value="Sign Up" />
+        </a>
+    </div>
+</body>
+</html> 

@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://tempuri.org/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" name="Service1" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/ChatTask" />
+      <xs:element name="AddUser">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AddUserResponse">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AddPrivateMessage">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/ChatTask" minOccurs="0" name="privateMessage" nillable="true" type="q1:PrivateMessage" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AddPrivateMessageResponse">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AddGroupMessage">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/ChatTask" minOccurs="0" name="groupMessage" nillable="true" type="q2:GroupMessage" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AddGroupMessageResponse">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CheckUser">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CheckUserResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="CheckUserResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetUserByName">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetUserByNameResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/ChatTask" minOccurs="0" name="GetUserByNameResult" nillable="true" type="q3:Users" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetUsersWithoutThisId">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="id" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetUsersWithoutThisIdResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/ChatTask" minOccurs="0" name="GetUsersWithoutThisIdResult" nillable="true" type="q4:ArrayOfUsers" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetGroupMessages">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetGroupMessagesResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/ChatTask" minOccurs="0" name="GetGroupMessagesResult" nillable="true" type="q5:ArrayOfGroupMessage" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetPrivateMessages">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetPrivateMessagesResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/ChatTask" minOccurs="0" name="GetPrivateMessagesResult" nillable="true" type="q6:ArrayOfPrivateMessage" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="anyType" nillable="true" type="xs:anyType" />
+      <xs:element name="anyURI" nillable="true" type="xs:anyURI" />
+      <xs:element name="base64Binary" nillable="true" type="xs:base64Binary" />
+      <xs:element name="boolean" nillable="true" type="xs:boolean" />
+      <xs:element name="byte" nillable="true" type="xs:byte" />
+      <xs:element name="dateTime" nillable="true" type="xs:dateTime" />
+      <xs:element name="decimal" nillable="true" type="xs:decimal" />
+      <xs:element name="double" nillable="true" type="xs:double" />
+      <xs:element name="float" nillable="true" type="xs:float" />
+      <xs:element name="int" nillable="true" type="xs:int" />
+      <xs:element name="long" nillable="true" type="xs:long" />
+      <xs:element name="QName" nillable="true" type="xs:QName" />
+      <xs:element name="short" nillable="true" type="xs:short" />
+      <xs:element name="string" nillable="true" type="xs:string" />
+      <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte" />
+      <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt" />
+      <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong" />
+      <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort" />
+      <xs:element name="char" nillable="true" type="tns:char" />
+      <xs:simpleType name="char">
+        <xs:restriction base="xs:int" />
+      </xs:simpleType>
+      <xs:element name="duration" nillable="true" type="tns:duration" />
+      <xs:simpleType name="duration">
+        <xs:restriction base="xs:duration">
+          <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?" />
+          <xs:minInclusive value="-P10675199DT2H48M5.4775808S" />
+          <xs:maxInclusive value="P10675199DT2H48M5.4775807S" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="guid" nillable="true" type="tns:guid" />
+      <xs:simpleType name="guid">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:attribute name="FactoryType" type="xs:QName" />
+      <xs:attribute name="Id" type="xs:ID" />
+      <xs:attribute name="Ref" type="xs:IDREF" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/ChatTask" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ChatTask" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="PrivateMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="PrivateMessageChatId" type="xs:int" />
+          <xs:element minOccurs="0" name="PrivateMessageColor" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PrivateMessageId" type="xs:int" />
+          <xs:element minOccurs="0" name="PrivateMessageName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PrivateMessageSenderId" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="PrivateMessage" nillable="true" type="tns:PrivateMessage" />
+      <xs:complexType name="GroupMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="GroupMessageColor" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="GroupMessageId" type="xs:int" />
+          <xs:element minOccurs="0" name="GroupMessageName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="GroupMessageSenderId" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="GroupMessage" nillable="true" type="tns:GroupMessage" />
+      <xs:complexType name="Users">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="UserColor" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UserId" type="xs:int" />
+          <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UserPassword" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="Users" nillable="true" type="tns:Users" />
+      <xs:complexType name="ArrayOfUsers">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Users" nillable="true" type="tns:Users" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfUsers" nillable="true" type="tns:ArrayOfUsers" />
+      <xs:complexType name="ArrayOfGroupMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="GroupMessage" nillable="true" type="tns:GroupMessage" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfGroupMessage" nillable="true" type="tns:ArrayOfGroupMessage" />
+      <xs:complexType name="ArrayOfPrivateMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="PrivateMessage" nillable="true" type="tns:PrivateMessage" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfPrivateMessage" nillable="true" type="tns:ArrayOfPrivateMessage" />
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="IService1_AddUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddUser" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddPrivateMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddPrivateMessage" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddPrivateMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddPrivateMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddGroupMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddGroupMessage" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddGroupMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddGroupMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_CheckUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckUser" />
+  </wsdl:message>
+  <wsdl:message name="IService1_CheckUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetUserByName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserByName" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetUserByName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserByNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetUsersWithoutThisId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersWithoutThisId" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetUsersWithoutThisId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersWithoutThisIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetGroupMessages_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGroupMessages" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetGroupMessages_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGroupMessagesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetPrivateMessages_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPrivateMessages" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetPrivateMessages_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPrivateMessagesResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IService1">
+    <wsdl:operation name="AddUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AddUser" message="tns:IService1_AddUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AddUserResponse" message="tns:IService1_AddUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddPrivateMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AddPrivateMessage" message="tns:IService1_AddPrivateMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AddPrivateMessageResponse" message="tns:IService1_AddPrivateMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddGroupMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AddGroupMessage" message="tns:IService1_AddGroupMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AddGroupMessageResponse" message="tns:IService1_AddGroupMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/CheckUser" message="tns:IService1_CheckUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/CheckUserResponse" message="tns:IService1_CheckUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetUserByName" message="tns:IService1_GetUserByName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetUserByNameResponse" message="tns:IService1_GetUserByName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersWithoutThisId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetUsersWithoutThisId" message="tns:IService1_GetUsersWithoutThisId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetUsersWithoutThisIdResponse" message="tns:IService1_GetUsersWithoutThisId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupMessages">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetGroupMessages" message="tns:IService1_GetGroupMessages_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetGroupMessagesResponse" message="tns:IService1_GetGroupMessages_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPrivateMessages">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetPrivateMessages" message="tns:IService1_GetPrivateMessages_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetPrivateMessagesResponse" message="tns:IService1_GetPrivateMessages_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddUser">
+      <soap:operation soapAction="http://tempuri.org/IService1/AddUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddPrivateMessage">
+      <soap:operation soapAction="http://tempuri.org/IService1/AddPrivateMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddGroupMessage">
+      <soap:operation soapAction="http://tempuri.org/IService1/AddGroupMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckUser">
+      <soap:operation soapAction="http://tempuri.org/IService1/CheckUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByName">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetUserByName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersWithoutThisId">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetUsersWithoutThisId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupMessages">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetGroupMessages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPrivateMessages">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetPrivateMessages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service1">
+    <wsdl:port name="BasicHttpBinding_IService1" binding="tns:BasicHttpBinding_IService1">
+      <soap:address location="http://localhost:54255/Service1.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

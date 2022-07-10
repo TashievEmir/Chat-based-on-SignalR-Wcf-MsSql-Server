@@ -1,0 +1,13 @@
+E:\FinanceSoft\ChatTask\ChatTask\bin\ChatTask.dll.config
+E:\FinanceSoft\ChatTask\ChatTask\bin\ChatTask.dll
+E:\FinanceSoft\ChatTask\ChatTask\bin\ChatTask.pdb
+E:\FinanceSoft\ChatTask\ChatTask\obj\Debug\ChatTask.csproj.AssemblyReference.cache
+E:\FinanceSoft\ChatTask\ChatTask\obj\Debug\ChatTask.csproj.CoreCompileInputs.cache
+E:\FinanceSoft\ChatTask\ChatTask\obj\Debug\ChatTask.dll
+E:\FinanceSoft\ChatTask\ChatTask\obj\Debug\ChatTask.pdb
+E:\FinanceSoft\ChatTask\ChatTask\bin\EntityFramework.dll
+E:\FinanceSoft\ChatTask\ChatTask\bin\EntityFramework.SqlServer.dll
+E:\FinanceSoft\ChatTask\ChatTask\bin\EntityFramework.xml
+E:\FinanceSoft\ChatTask\ChatTask\bin\EntityFramework.SqlServer.xml
+E:\FinanceSoft\ChatTask\ChatTask\bin\ru\EntityFramework.resources.dll
+E:\FinanceSoft\ChatTask\ChatTask\obj\Debug\ChatTask.csproj.CopyComplete

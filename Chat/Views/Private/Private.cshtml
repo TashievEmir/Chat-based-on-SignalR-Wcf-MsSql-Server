@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Chat.ServiceReferenceWcf.Users>
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <h2>Choose Contact</h2>
+
+    <div class="main">
+        <div id="chatBody">
+            @foreach(var user in Model)
+            {
+                
+                <a href="@Url.Action("Chat", "Private", new {id=user.UserId})">
+                    <input type="button" value="@user.UserName" />
+                    <br /><br />
+                </a>
+            }
+        </div>
+    </div>
+
+</body>
+</html>

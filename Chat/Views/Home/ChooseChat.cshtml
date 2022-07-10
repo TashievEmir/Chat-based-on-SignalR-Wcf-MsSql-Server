@@ -1,0 +1,27 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ChooseChat</title>
+</head>
+<body>
+    <div>
+        <h2>
+            Please choose, what kind of chat would you like?
+        </h2>
+        <br /><br />
+        <a href="@Url.Action("Group","Group")">
+            <input type="button" value="GroupChat" />
+        </a>
+        &nbsp;&nbsp;&nbsp;
+        <a href="@Url.Action("Private","Private")">
+            <input type="button" value="PrivateChat" />
+        </a>
+    </div>
+</body>
+</html>
