@@ -13,23 +13,22 @@ namespace Chat.Controllers
         {
             return View();
         }
-
-        [HttpPost]
-        public ActionResult Index(string name, string password)
+        public ActionResult SignIn(string name, string password)
         {
+            Console.WriteLine(name);
+            Console.WriteLine(password);
             bool check=client.CheckUser(name,password);
             if (check) {
-                Users user = client.GetUserByName(name);
+                Users user = client.GetUserByName( name, password );
                 Session["SenderId"] = user.UserId;
                 Session["SenderName"] = user.UserName;
                 Session["SenderColor"] = user.UserColor;
                 return RedirectToAction("ChooseChat", "Home");
             } 
-            else return View();
+            else return RedirectToAction("Index", "Home");
         }
-
-        public ActionResult ChooseChat()
-        {
+        public ActionResult ChooseChat(string sendname)
+        {         
             return View();
         }
     }

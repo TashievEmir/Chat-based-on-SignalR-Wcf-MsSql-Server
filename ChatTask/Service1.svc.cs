@@ -50,11 +50,13 @@ namespace ChatTask
             return unitOfWork.PrivateMessage.GetList().ToList();
         }
 
-        public Users GetUserByName(string name)
+        public Users GetUserByName(string name, string password)
         {
-            var user=unitOfWork.Users.GetList();
-            var check = user.FirstOrDefault(u => u.UserName == name);
-            if(check!=null) return check;
+            var user = unitOfWork.Users.GetList();
+            var check = user.FirstOrDefault(u => u.UserName == name && u.UserPassword == password);
+            if (check != null) { 
+                return check;
+            }
             else return null;
         }
         public List<Users> GetUsersWithoutThisId(int id)

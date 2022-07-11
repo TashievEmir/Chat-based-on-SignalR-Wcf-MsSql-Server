@@ -8,7 +8,7 @@
     <title></title>
 </head>
 <body>
-    <h2>Chat</h2>
+    <h2>Group Chat</h2>
 
     <div class="main">
 
@@ -20,7 +20,7 @@
             </div>
             @foreach (var groupMess in Model)
             {
-            <div style="color:@groupMess.GroupMessageColor;" id="history">
+            <div style="color:@groupMess.GroupMessageColor; font:200;" id="history">
                 @groupMess.GroupMessageName : @groupMess.GroupMessageText <br/>
             </div>
             }
@@ -45,7 +45,7 @@
             // Объявление функции, которая хаб вызывает при получении сообщений
             chat.client.addMessage = function (name, message, color) {
                 // Добавление сообщений на веб-страницу
-                $('#chatroom').append('<p style="color:' + htmlEncode(color) + '"><b>' +htmlEncode(name)+'</b>: '+htmlEncode(message)+'</p>');
+                $('#chatroom').append('<span style="color:' + htmlEncode(color) + '"><b>' +htmlEncode(name)+'</b>: '+htmlEncode(message)+'</span><br/>');
             };
             // Функция, вызываемая при подключении нового пользователя
             chat.client.onConnected = function (id, userName, allUsers) {

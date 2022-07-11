@@ -353,10 +353,10 @@ namespace Chat.ServiceReferenceWcf {
         System.Threading.Tasks.Task<bool> CheckUserAsync(string username, string password);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetUserByName", ReplyAction="http://tempuri.org/IService1/GetUserByNameResponse")]
-        Chat.ServiceReferenceWcf.Users GetUserByName(string name);
+        Chat.ServiceReferenceWcf.Users GetUserByName(string name, string password);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetUserByName", ReplyAction="http://tempuri.org/IService1/GetUserByNameResponse")]
-        System.Threading.Tasks.Task<Chat.ServiceReferenceWcf.Users> GetUserByNameAsync(string name);
+        System.Threading.Tasks.Task<Chat.ServiceReferenceWcf.Users> GetUserByNameAsync(string name, string password);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetUsersWithoutThisId", ReplyAction="http://tempuri.org/IService1/GetUsersWithoutThisIdResponse")]
         Chat.ServiceReferenceWcf.Users[] GetUsersWithoutThisId(int id);
@@ -436,12 +436,12 @@ namespace Chat.ServiceReferenceWcf {
             return base.Channel.CheckUserAsync(username, password);
         }
         
-        public Chat.ServiceReferenceWcf.Users GetUserByName(string name) {
-            return base.Channel.GetUserByName(name);
+        public Chat.ServiceReferenceWcf.Users GetUserByName(string name, string password) {
+            return base.Channel.GetUserByName(name, password);
         }
         
-        public System.Threading.Tasks.Task<Chat.ServiceReferenceWcf.Users> GetUserByNameAsync(string name) {
-            return base.Channel.GetUserByNameAsync(name);
+        public System.Threading.Tasks.Task<Chat.ServiceReferenceWcf.Users> GetUserByNameAsync(string name, string password) {
+            return base.Channel.GetUserByNameAsync(name, password);
         }
         
         public Chat.ServiceReferenceWcf.Users[] GetUsersWithoutThisId(int id) {

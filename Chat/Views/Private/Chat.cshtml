@@ -8,7 +8,7 @@
     <title></title>
 </head>
 <body>
-    <h2>Chat</h2>
+    <h2>Private Chat</h2>
 
     <div class="main">
         
@@ -22,13 +22,13 @@
             { 
                 if (privateMess.PrivateMessageChatId == Convert.ToInt32(ViewData["chatId"]) )
                 {
-                    <div style="color:@privateMess.PrivateMessageColor;" id="history">
+                    <div style="color:@privateMess.PrivateMessageColor; font:200;" id="history">
                         
                         @privateMess.PrivateMessageName : @privateMess.PrivateMessageText<br />
                     </div>
                 }              
             }
-            <div style="color:@ViewData["SenderColor"];" id="chatroom"></div>
+            <div style="color:@ViewData["SenderColor"]; font:200;" id="chatroom"></div>
         </div>
         <input id="hdId" type="hidden" />
         <input id="username" type="hidden" />
@@ -47,7 +47,7 @@
                 console.log(@ViewData["chatId"])
                 console.log(chatId)
                 if (@ViewData["chatId"]== chatId) {
-                    $('#chatroom').append('<p style="color:' + htmlEncode(color) + '"><b>' + htmlEncode(name) + '</b>: ' + htmlEncode(message) + '</p>');
+                    $('#chatroom').append('<span style="color:' + htmlEncode(color) + '"><b>' + htmlEncode(name) + '</b>: ' + htmlEncode(message) + '</span><br/>');
                 }
             };
             // Функция, вызываемая при подключении нового пользователя

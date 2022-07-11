@@ -26,7 +26,7 @@ namespace ChatTask
         bool CheckUser(string username, string password);
 
         [OperationContract]
-        Users GetUserByName(string name);
+        Users GetUserByName(string name, string password);
 
         [OperationContract]
         List<Users> GetUsersWithoutThisId(int id);

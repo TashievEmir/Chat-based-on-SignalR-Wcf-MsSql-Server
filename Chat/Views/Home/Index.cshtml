@@ -7,18 +7,19 @@
     <title>SignalR BroadCast</title>
 </head>
 <body>
+    <h2>Sign In </h2>
     <br /><br />
-    <form method="post">
+    
         <div id="selfid">
             &nbsp; Input your name: &nbsp;
-            <input name="name" type="text" />
+            <input name="name" type="text" data-bind="textInput: userName" />
             <br /><br />
             &nbsp; Input your name: &nbsp;
-            <input name="password" type="text" /> 
+            <input name="password" type="password" data-bind="textInput: userPassword" />
             &nbsp;
-            <input id="btnmyid" type="submit" value="Sign In" />
+            <input id="btnmyid" type="submit" value="Sign In" data-bind="click: clickHandler" />
         </div>
-    </form>
+    
     <br /><br />
     <div>
         For Registration &nbsp;
@@ -26,5 +27,47 @@
             <input type="button" value="Sign Up" />
         </a>
     </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.1/knockout-latest.js"></script>
+    <script>
+
+let viewModel={
+    userName:ko.observable(""),
+    userPassword:ko.observable(""),
+    clickHandler:function () {
+        if (username!=undefined && password!=undefined) {
+            if (username != "" && password != "") {
+                console.log(username)
+                console.log(password)
+                let url ="https://localhost:44329/Home/SignIn?name="+username+"&password="+password;
+                  window.location.href =url;
+              }
+          }
+          else alert("Please, enter your name and password")
+        }
+    };
+ko.applyBindings(viewModel);
+var username;
+var password;
+console.log(username);
+console.log(password);
+viewModel.userName.subscribe(function (value){
+username=value;
+});
+viewModel.userPassword.subscribe(function(valuepass) {
+ password=valuepass;
+})
+/*var signInBtn=document.getElementById("SignInBtn");
+signInBtn.addEventListener("click", function (e){
+    console.log(username);
+    console.log(password);
+  if (username!=undefined && password!=undefined) {
+      if (username!="" && password!=""){
+              window.location.href="http://localhost:5000/Home/nextPage";
+      }
+  }
+  else alert("Please, enter your name and password")
+})*/
+    </script>
 </body>
 </html> 
