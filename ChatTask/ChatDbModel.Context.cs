@@ -13,10 +13,10 @@ namespace ChatTask
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Chat_DbEntities : DbContext
+    public partial class ChatDBEntities : DbContext
     {
-        public Chat_DbEntities()
-            : base("name=Chat_DbEntities")
+        public ChatDBEntities()
+            : base("name=ChatDBEntities")
         {
         }
     

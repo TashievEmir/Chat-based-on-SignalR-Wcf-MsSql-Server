@@ -7,8 +7,8 @@ namespace ChatTask
 {
     public class GroupMessageRepository : IRepository<GroupMessage>
     {
-        Chat_DbEntities context;
-        public GroupMessageRepository(Chat_DbEntities context)
+        ChatDBEntities context;
+        public GroupMessageRepository(ChatDBEntities context)
         {
             this.context = context;
         }
@@ -19,7 +19,7 @@ namespace ChatTask
         }
         public GroupMessage Get(int id)
         {
-            return context.GroupMessage.FirstOrDefault(u => u.GroupMessageSenderId == id);
+            return context.GroupMessage.FirstOrDefault(u => u.GroupMessageId == id);
         }
         public IEnumerable<GroupMessage> GetList()
         {

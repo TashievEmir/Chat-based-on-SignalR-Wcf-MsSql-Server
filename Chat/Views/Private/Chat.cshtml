@@ -1,4 +1,5 @@
-﻿@{
+﻿@model IEnumerable<Chat.ServiceReferenceWcf.PrivateMessage>
+@{
     Layout = null;
 }
 <!DOCTYPE html>
@@ -17,7 +18,17 @@
                 <input type="text" id="message" />
                 <input type="button" id="sendmessage" value="Отправить" />
             </div>
-            <div style="color:@ViewData["SenderColor"];" id="chatroom"></div>          
+            @foreach (var privateMess in Model)
+            { 
+                if (privateMess.PrivateMessageChatId == Convert.ToInt32(ViewData["chatId"]) )
+                {
+                    <div style="color:@privateMess.PrivateMessageColor;" id="history">
+                        
+                        @privateMess.PrivateMessageName : @privateMess.PrivateMessageText<br />
+                    </div>
+                }              
+            }
+            <div style="color:@ViewData["SenderColor"];" id="chatroom"></div>
         </div>
         <input id="hdId" type="hidden" />
         <input id="username" type="hidden" />

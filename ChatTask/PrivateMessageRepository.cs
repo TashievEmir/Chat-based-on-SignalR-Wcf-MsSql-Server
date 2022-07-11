@@ -7,8 +7,8 @@ namespace ChatTask
 {
     public class PrivateMessageRepository : IRepository<PrivateMessage>
     {
-        Chat_DbEntities context;
-        public PrivateMessageRepository(Chat_DbEntities context)
+        ChatDBEntities context;
+        public PrivateMessageRepository(ChatDBEntities context)
         {
             this.context = context;
         }

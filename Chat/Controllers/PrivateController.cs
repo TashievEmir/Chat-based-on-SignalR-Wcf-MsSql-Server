@@ -19,9 +19,11 @@ namespace Chat.Controllers
             ViewData["SenderId"] = Session["SenderId"];
             ViewData["SenderName"] = Session["SenderName"];
             ViewData["SenderColor"] = Session["SenderColor"];
+            ViewData["ReceiverId"] = id;
             int chatId = Convert.ToInt32(ViewData["SenderId"]) + id;
             ViewData["chatId"]=chatId;
-            return View();
+            var privateMess = client.GetPrivateMessages();
+            return View(privateMess);
         }
     }
 }

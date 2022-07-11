@@ -7,8 +7,8 @@ namespace ChatTask
 {
     public class UsersRepository : IRepository<Users>
     {
-        Chat_DbEntities context;
-        public UsersRepository(Chat_DbEntities context)
+        ChatDBEntities context;
+        public UsersRepository(ChatDBEntities context)
         {
             this.context = context;
         }

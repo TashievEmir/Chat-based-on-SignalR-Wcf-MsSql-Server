@@ -1,4 +1,5 @@
-﻿@{
+﻿@model IEnumerable<Chat.ServiceReferenceWcf.GroupMessage>
+@{
     Layout = null;
 }
 <!DOCTYPE html>
@@ -17,8 +18,14 @@
                 <input type="text" id="message" />
                 <input type="button" id="sendmessage" value="Отправить" />
             </div>
+            @foreach (var groupMess in Model)
+            {
+            <div style="color:@groupMess.GroupMessageColor;" id="history">
+                @groupMess.GroupMessageName : @groupMess.GroupMessageText <br/>
+            </div>
+            }
             <div style="color:@ViewData["SenderColor"];" id="chatroom"></div>
-
+            
             <div id="chatusers">
                 <p><b>Все пользователи</b></p>
             </div>

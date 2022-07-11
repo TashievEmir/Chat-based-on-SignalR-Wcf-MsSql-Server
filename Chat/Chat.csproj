@@ -159,6 +159,12 @@
     <Compile Include="User.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Connected Services\ServiceReferenceWcf\Chat.ServiceReferenceWcf.GroupMessage.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\ServiceReferenceWcf\Chat.ServiceReferenceWcf.PrivateMessage.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <Content Include="Connected Services\ServiceReferenceWcf\Chat.ServiceReferenceWcf.Users.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>

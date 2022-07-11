@@ -15,8 +15,8 @@ namespace Chat.Hubs
         {
             GroupMessage groupMessage = new GroupMessage()
             {
-                GroupMessageSenderId = id,
-                GroupMessageName=message,
+                GroupMessageText = message,
+                GroupMessageName=name,
                 GroupMessageColor=color
             };
             client.AddGroupMessage(groupMessage);
@@ -28,8 +28,9 @@ namespace Chat.Hubs
             {
                 PrivateMessageChatId = chatId,
                 PrivateMessageSenderId =senderid, 
-                PrivateMessageName=message,
-                PrivateMessageColor=color,
+                PrivateMessageName=name,
+                PrivateMessageText=message,
+                PrivateMessageColor=color
             };
             client.AddPrivateMessage(privateMessage);
             Clients.All.addMessagePrivate(chatId,name, message, color);

@@ -37,6 +37,9 @@ namespace Chat.ServiceReferenceWcf {
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int PrivateMessageSenderIdField;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PrivateMessageTextField;
+        
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
             get {
@@ -112,6 +115,19 @@ namespace Chat.ServiceReferenceWcf {
             }
         }
         
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PrivateMessageText {
+            get {
+                return this.PrivateMessageTextField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PrivateMessageTextField, value) != true)) {
+                    this.PrivateMessageTextField = value;
+                    this.RaisePropertyChanged("PrivateMessageText");
+                }
+            }
+        }
+        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
         protected void RaisePropertyChanged(string propertyName) {
@@ -141,7 +157,7 @@ namespace Chat.ServiceReferenceWcf {
         private string GroupMessageNameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int GroupMessageSenderIdField;
+        private string GroupMessageTextField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -193,14 +209,14 @@ namespace Chat.ServiceReferenceWcf {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int GroupMessageSenderId {
+        public string GroupMessageText {
             get {
-                return this.GroupMessageSenderIdField;
+                return this.GroupMessageTextField;
             }
             set {
-                if ((this.GroupMessageSenderIdField.Equals(value) != true)) {
-                    this.GroupMessageSenderIdField = value;
-                    this.RaisePropertyChanged("GroupMessageSenderId");
+                if ((object.ReferenceEquals(this.GroupMessageTextField, value) != true)) {
+                    this.GroupMessageTextField = value;
+                    this.RaisePropertyChanged("GroupMessageText");
                 }
             }
         }

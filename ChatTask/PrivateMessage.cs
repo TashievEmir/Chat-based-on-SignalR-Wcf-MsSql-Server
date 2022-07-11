@@ -18,6 +18,7 @@ namespace ChatTask
         public int PrivateMessageChatId { get; set; }
         public int PrivateMessageSenderId { get; set; }
         public string PrivateMessageName { get; set; }
+        public string PrivateMessageText { get; set; }
         public string PrivateMessageColor { get; set; }
     }
 }

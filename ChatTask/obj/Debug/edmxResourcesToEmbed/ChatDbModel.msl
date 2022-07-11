@@ -1,29 +1,30 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="Хранилище Chat_DbModelContainer" CdmEntityContainer="Chat_DbEntities">
+  <EntityContainerMapping StorageEntityContainer="Хранилище ChatDBModelContainer" CdmEntityContainer="ChatDBEntities">
     <EntitySetMapping Name="GroupMessage">
-      <EntityTypeMapping TypeName="Chat_DbModel.GroupMessage">
+      <EntityTypeMapping TypeName="ChatDBModel.GroupMessage">
         <MappingFragment StoreEntitySet="GroupMessage">
           <ScalarProperty Name="GroupMessageId" ColumnName="GroupMessageId" />
-          <ScalarProperty Name="GroupMessageSenderId" ColumnName="GroupMessageSenderId" />
           <ScalarProperty Name="GroupMessageName" ColumnName="GroupMessageName" />
+          <ScalarProperty Name="GroupMessageText" ColumnName="GroupMessageText" />
           <ScalarProperty Name="GroupMessageColor" ColumnName="GroupMessageColor" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="PrivateMessage">
-      <EntityTypeMapping TypeName="Chat_DbModel.PrivateMessage">
+      <EntityTypeMapping TypeName="ChatDBModel.PrivateMessage">
         <MappingFragment StoreEntitySet="PrivateMessage">
           <ScalarProperty Name="PrivateMessageId" ColumnName="PrivateMessageId" />
           <ScalarProperty Name="PrivateMessageChatId" ColumnName="PrivateMessageChatId" />
           <ScalarProperty Name="PrivateMessageSenderId" ColumnName="PrivateMessageSenderId" />
           <ScalarProperty Name="PrivateMessageName" ColumnName="PrivateMessageName" />
+          <ScalarProperty Name="PrivateMessageText" ColumnName="PrivateMessageText" />
           <ScalarProperty Name="PrivateMessageColor" ColumnName="PrivateMessageColor" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Users">
-      <EntityTypeMapping TypeName="Chat_DbModel.Users">
+      <EntityTypeMapping TypeName="ChatDBModel.Users">
         <MappingFragment StoreEntitySet="Users">
           <ScalarProperty Name="UserId" ColumnName="UserId" />
           <ScalarProperty Name="UserName" ColumnName="UserName" />

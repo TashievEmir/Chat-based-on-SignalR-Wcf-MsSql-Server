@@ -7,7 +7,7 @@ namespace ChatTask
 {
         public class UnitOfWork : IDisposable
         {
-            private Chat_DbEntities db = new Chat_DbEntities();
+            private ChatDBEntities db = new ChatDBEntities();
             private UsersRepository usersRepository;
             private PrivateMessageRepository privateMessage;
             private GroupMessageRepository groupMessage;

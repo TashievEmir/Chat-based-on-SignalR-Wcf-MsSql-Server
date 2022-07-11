@@ -157,6 +157,7 @@
           <xs:element minOccurs="0" name="PrivateMessageId" type="xs:int" />
           <xs:element minOccurs="0" name="PrivateMessageName" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="PrivateMessageSenderId" type="xs:int" />
+          <xs:element minOccurs="0" name="PrivateMessageText" nillable="true" type="xs:string" />
         </xs:sequence>
       </xs:complexType>
       <xs:element name="PrivateMessage" nillable="true" type="tns:PrivateMessage" />
@@ -165,7 +166,7 @@
           <xs:element minOccurs="0" name="GroupMessageColor" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="GroupMessageId" type="xs:int" />
           <xs:element minOccurs="0" name="GroupMessageName" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="GroupMessageSenderId" type="xs:int" />
+          <xs:element minOccurs="0" name="GroupMessageText" nillable="true" type="xs:string" />
         </xs:sequence>
       </xs:complexType>
       <xs:element name="GroupMessage" nillable="true" type="tns:GroupMessage" />

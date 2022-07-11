@@ -15,8 +15,8 @@ namespace ChatTask
     public partial class GroupMessage
     {
         public int GroupMessageId { get; set; }
-        public int GroupMessageSenderId { get; set; }
         public string GroupMessageName { get; set; }
+        public string GroupMessageText { get; set; }
         public string GroupMessageColor { get; set; }
     }
 }

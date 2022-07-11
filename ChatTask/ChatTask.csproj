@@ -71,8 +71,8 @@
   <ItemGroup>
     <Content Include="ChatDbModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ChatDbModel.Context.cs</LastGenOutput>
       <DependentUpon>ChatDbModel.edmx</DependentUpon>
+      <LastGenOutput>ChatDbModel.Context.cs</LastGenOutput>
     </Content>
     <Content Include="ChatDbModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
